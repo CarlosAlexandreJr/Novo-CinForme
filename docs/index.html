@@ -10,82 +10,96 @@
 
   <header>
     <h1>📚 Biblioteca CInForme</h1>
-    <p>Sistema de gerenciamento de biblioteca em C++ com POO, hash e controle de usuários</p>
+    <p>Um sistema de biblioteca em C++ com orientação a objetos, autenticação e tabela hash.</p>
   </header>
 
   <main>
 
     <section>
-      <h2>🚀 Sobre o Projeto</h2>
-      <p>O <strong>Biblioteca CInForme</strong> é um sistema de biblioteca desenvolvido em C++, com suporte a cadastro de usuários, controle de empréstimo de livros e operações diversas de gerenciamento do acervo, utilizando conceitos sólidos de Programação Orientada a Objetos.</p>
+      <h2>📌 Sobre o Projeto</h2>
+      <p>O <strong>Biblioteca CInForme</strong> é um sistema de gerenciamento de biblioteca desenvolvido em C++. Ele permite o cadastro e login de usuários, empréstimo e devolução de livros, edição e exclusão de itens da biblioteca, utilizando estrutura de dados eficientes como vetor e tabela hash. O projeto foi pensado para praticar e aplicar os principais conceitos da Programação Orientada a Objetos (POO).</p>
     </section>
 
     <section>
-      <h2>🗂️ Estrutura do Projeto</h2>
+      <h2>🧠 Conceitos de Programação Orientada a Objetos</h2>
       <ul>
-        <li><strong>ItemBiblioteca:</strong> Classe abstrata com método virtual <code>exibirInformacoes()</code>.</li>
-        <li><strong>Livro:</strong> Herda de ItemBiblioteca. Exibe dados e status do livro.</li>
-        <li><strong>Usuario:</strong> Armazena nome, senha e livros alugados.</li>
-        <li><strong>Biblioteca:</strong> Controla tudo: usuários, hash de livros e operações.</li>
-        <li><strong>main.cpp:</strong> Loop principal com menus de login e biblioteca.</li>
+        <li><strong>Herança:</strong> A classe <code>Livro</code> herda de <code>ItemBiblioteca</code>.</li>
+        <li><strong>Polimorfismo:</strong> Uso de método virtual puro <code>exibirInformacoes()</code> implementado por subclasses.</li>
+        <li><strong>Encapsulamento:</strong> Atributos protegidos e privados acessados via getters/setters.</li>
+        <li><strong>Classe Abstrata:</strong> <code>ItemBiblioteca</code> obriga implementação de métodos essenciais pelas classes derivadas.</li>
+        <li><strong>Tabela Hash:</strong> Livros são armazenados de forma eficiente em uma tabela hash para acesso rápido por ID.</li>
       </ul>
     </section>
 
     <section>
-      <h2>🧠 Conceitos de POO Aplicados</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Conceito</th>
-            <th>Implementação</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Herança</td>
-            <td><code>class Livro : public ItemBiblioteca</code></td>
-          </tr>
-          <tr>
-            <td>Polimorfismo</td>
-            <td><code>exibirInformacoes()</code> sobrescrito em Livro</td>
-          </tr>
-          <tr>
-            <td>Encapsulamento</td>
-            <td>Atributos privados com acesso por getters/setters</td>
-          </tr>
-          <tr>
-            <td>Classe Abstrata</td>
-            <td><code>ItemBiblioteca</code> com método virtual puro</td>
-          </tr>
-          <tr>
-            <td>Tabela Hash</td>
-            <td>Armazena livros por ID em <code>tabelaLivros[]</code></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-
-    <section>
-      <h2>🔮 Futuras Expansões</h2>
+      <h2>🛠️ Estrutura dos Arquivos</h2>
       <ul>
-        <li>Suporte a diferentes tipos de itens (revistas, DVDs...)</li>
-        <li>Persistência com arquivos ou banco de dados</li>
-        <li>Interface gráfica com Qt ou versão Web</li>
-        <li>Relatórios e histórico de empréstimos</li>
+        <li><code>ItemBiblioteca.h / .cpp</code> — Classe abstrata base.</li>
+        <li><code>Livro.h / .cpp</code> — Subclasse de <code>ItemBiblioteca</code>.</li>
+        <li><code>Usuario.h / .cpp</code> — Representa o usuário e seus livros alugados.</li>
+        <li><code>Biblioteca.h / .cpp</code> — Controla o sistema: usuários, livros, login e ações.</li>
+        <li><code>main.cpp</code> — Ponto de entrada. Gerencia os menus de interação.</li>
       </ul>
     </section>
 
     <section>
-      <h2>👨‍💻 Autor</h2>
-      <p>Desenvolvido por <strong>Carlos</strong>.</p>
+      <h2>🧾 Resumo das Funções</h2>
+
+      <h3>🔹 ItemBiblioteca</h3>
+      <ul>
+        <li><code>exibirInformacoes()</code> – método abstrato a ser implementado nas subclasses.</li>
+        <li><code>getId(), getTitulo(), getAutor(), isAlugado()</code> – métodos de acesso.</li>
+        <li><code>setTitulo(), setAutor(), setAlugado()</code> – métodos modificadores.</li>
+      </ul>
+
+      <h3>🔹 Livro</h3>
+      <ul>
+        <li>Construtor: inicializa id, título e autor.</li>
+        <li><code>exibirInformacoes()</code> – exibe detalhes do livro e status de aluguel.</li>
+      </ul>
+
+      <h3>🔹 Usuario</h3>
+      <ul>
+        <li>Construtor: define nome e senha.</li>
+        <li><code>autenticar()</code> – valida a senha do usuário.</li>
+        <li><code>alugarLivro()</code> – registra o ID do livro alugado.</li>
+        <li><code>devolverLivro()</code> – remove o livro da lista de alugados.</li>
+        <li><code>getLivrosAlugados()</code> – retorna todos os livros alugados.</li>
+      </ul>
+
+      <h3>🔹 Biblioteca</h3>
+      <ul>
+        <li><code>Cadastrar_Usuario()</code> – adiciona um novo usuário.</li>
+        <li><code>Login()</code> – autentica e armazena o usuário logado.</li>
+        <li><code>Logout()</code> – encerra a sessão.</li>
+        <li><code>Adicionar_Livro()</code> – cria e insere um livro na hash.</li>
+        <li><code>Listar_Livros()</code> – exibe todos os livros da biblioteca.</li>
+        <li><code>buscarLivroPorId()</code> – retorna o livro pelo ID.</li>
+        <li><code>hash()</code> – função de espalhamento da tabela.</li>
+        <li><code>Alugar_Livro()</code> – marca como alugado e vincula ao usuário.</li>
+        <li><code>Devolver_Livro()</code> – torna o livro disponível novamente.</li>
+        <li><code>Listar_Livros_Alugados()</code> – mostra livros alugados pelo usuário atual.</li>
+        <li><code>Editar_Livro()</code> – altera título ou autor.</li>
+        <li><code>Remover_Livro()</code> – exclui o livro da biblioteca.</li>
+      </ul>
+
+      <h3>🔹 Menu e Execução</h3>
+      <ul>
+        <li><code>main()</code> – inicia o programa e gerencia o menu inicial.</li>
+        <li><code>MenuBiblioteca()</code> – opções disponíveis após o login.</li>
+      </ul>
     </section>
 
     <section>
-      <h2>📎 Repositório</h2>
-      <p>Confira o código-fonte no GitHub:  
-        <a href="https://github.com/CarlosAlexandreJr/CInForme_Gestao_de_Bibliotecas" target="_blank">
-          github.com/CInForme_Gestao_de_Bibliotecas
+      <h2>👤 Autor</h2>
+      <p>Projeto desenvolvido por <strong>[Carlos Alexandre (cassj)]</strong>.</p>
+    </section>
+
+    <section>
+      <h2>📎 Repositório no GitHub</h2>
+      <p>Veja o código completo em:  
+        <a href="https://github.com/CarlosAlexandreJr/Novo-CinForme" target="_blank">
+          github.com/CarlosAlexandreJr/Biblioteca-CInForme
         </a>
       </p>
     </section>
@@ -93,7 +107,7 @@
   </main>
 
   <footer>
-    &copy; Estrutura de Dados Orientados a Objetos
+    &copy; 2025 Biblioteca CInForme — Projeto acadêmico desenvolvido em C++
   </footer>
 
 </body>
