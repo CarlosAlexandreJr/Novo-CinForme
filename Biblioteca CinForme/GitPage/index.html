@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca CInForme</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>📚 Biblioteca CInForme</h1>
+    <p>Sistema de gerenciamento de biblioteca em C++ com POO, hash e controle de usuários</p>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>🚀 Sobre o Projeto</h2>
+      <p>O <strong>Biblioteca CInForme</strong> é um sistema de biblioteca desenvolvido em C++, com suporte a cadastro de usuários, controle de empréstimo de livros e operações diversas de gerenciamento do acervo, utilizando conceitos sólidos de Programação Orientada a Objetos.</p>
+    </section>
+
+    <section>
+      <h2>🗂️ Estrutura do Projeto</h2>
+      <ul>
+        <li><strong>ItemBiblioteca:</strong> Classe abstrata com método virtual <code>exibirInformacoes()</code>.</li>
+        <li><strong>Livro:</strong> Herda de ItemBiblioteca. Exibe dados e status do livro.</li>
+        <li><strong>Usuario:</strong> Armazena nome, senha e livros alugados.</li>
+        <li><strong>Biblioteca:</strong> Controla tudo: usuários, hash de livros e operações.</li>
+        <li><strong>main.cpp:</strong> Loop principal com menus de login e biblioteca.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🧠 Conceitos de POO Aplicados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Conceito</th>
+            <th>Implementação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Herança</td>
+            <td><code>class Livro : public ItemBiblioteca</code></td>
+          </tr>
+          <tr>
+            <td>Polimorfismo</td>
+            <td><code>exibirInformacoes()</code> sobrescrito em Livro</td>
+          </tr>
+          <tr>
+            <td>Encapsulamento</td>
+            <td>Atributos privados com acesso por getters/setters</td>
+          </tr>
+          <tr>
+            <td>Classe Abstrata</td>
+            <td><code>ItemBiblioteca</code> com método virtual puro</td>
+          </tr>
+          <tr>
+            <td>Tabela Hash</td>
+            <td>Armazena livros por ID em <code>tabelaLivros[]</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <section>
+      <h2>🔮 Futuras Expansões</h2>
+      <ul>
+        <li>Suporte a diferentes tipos de itens (revistas, DVDs...)</li>
+        <li>Persistência com arquivos ou banco de dados</li>
+        <li>Interface gráfica com Qt ou versão Web</li>
+        <li>Relatórios e histórico de empréstimos</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>👨‍💻 Autor</h2>
+      <p>Desenvolvido por <strong>Carlos</strong>.</p>
+    </section>
+
+    <section>
+      <h2>📎 Repositório</h2>
+      <p>Confira o código-fonte no GitHub:  
+        <a href="https://github.com/CarlosAlexandreJr/CInForme_Gestao_de_Bibliotecas" target="_blank">
+          github.com/CInForme_Gestao_de_Bibliotecas
+        </a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; Estrutura de Dados Orientados a Objetos
+  </footer>
+
+</body>
+</html>
